@@ -7,13 +7,13 @@ const Instrument = ({ instrument }) => {
     return (
         <div>
             <div className="card lg:max-w-lg bg-base-100 shadow-xl">
-                <figure className="px-10 pt-10">
+                <figure className="lg:px-10 pt-10">
                     <img src={img} alt="Musical Instruments" className="rounded-xl h-[12rem]" />
                 </figure>
-                <div className="card-body text-center">
-                    <h2 className="card-title">{name}</h2>
-                    <p className='text-justify py-3'>{description}</p>
-                    <div className="flex justify-between mb-3 py-1 border-y-2">
+                <div className="card-body">
+                    <h2 className="card-title text-rose-700 font-semibold">{name}</h2>
+                    <p className='text-justify py-1 lg:py-3'>{description}</p>
+                    <div className="md:flex justify-between mb-3 py-1 lg:border-y-2">
                         <h5 className='text-gray-900 text-lg font-medium'>Available: <span className=' text-rose-700'> {availableQuantity}</span></h5>
                         <h5 className='text-gray-900 text-lg font-medium'>Minimum Order: <span className=' text-rose-700'>{minQuantity}</span></h5>
                     </div>
