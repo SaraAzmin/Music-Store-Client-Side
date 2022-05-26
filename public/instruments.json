@@ -1,0 +1,65 @@
+[
+    {
+        "_id": "628fa83960cfaaa1b0e80055",
+        "name": "Strings for Electric Guitar",
+        "img": "https://elcoda.com/images/small/strings_for_electric_guitar_pyramid_black_tape_nylon.jpg",
+        "description": "Perfectly balanced strings that are highly pleasant to play and boast flawless tuning precision and a bright sound as well as extreme durability.",
+        "price": 23,
+        "minQuantity": 10,
+        "availableQuantity": 30
+    },
+    {
+        "_id": "628fa839908ad0643e5b0581",
+        "name": "Strings for Classical Guitar",
+        "img": "https://elcoda.com/images/big/strings-for-classical-guitar-knobloch-erithacus-edq-34-5-high-tension-double-silver-qz-nylon-2.jpg",
+        "description": "Guitarists will find this set provides a warm sweetness with more edge than when paired with the SN Nylon strings.",
+        "price": 16,
+        "minQuantity": 10,
+        "availableQuantity": 52
+    },
+    {
+        "_id": "628fa839f81dbb69eb5d6da1",
+        "name": "Violin Strings",
+        "img": "https://elcoda.com/images/big/Pirastro_Violin_Evah_Pirazzi_strings_set_E-gold_steel.jpg",
+        "description": "While developing our violin string we have received positive assessments that our Platinum E-string allows for new dimensions in violin playing.",
+        "price": 48,
+        "minQuantity": 5,
+        "availableQuantity": 28
+    },
+    {
+        "_id": "628fa8392309e9f695f2ff3a",
+        "name": "Guitar bridge",
+        "img": "https://elcoda.com/images/big/schaller-tailpiece-2843.jpg",
+        "description": "The design of this bridge allows a adjustment. It is not only adjustable in terms of height and intonation, but also individual string spacing.",
+        "price": 50,
+        "minQuantity": 5,
+        "availableQuantity": 15
+    },
+    {
+        "_id": "628fa8399282b17952cc8089",
+        "name": "Guitar Strap",
+        "img": "https://elcoda.com/images/big/guitar_strap_as-13.jpg",
+        "description": "The padding is made out of little cells filled with air. The air padding makes your instrument feel lighter. Our shoulder straps are made from elastic.",
+        "price": 35,
+        "minQuantity": 10,
+        "availableQuantity": 32
+    },
+    {
+        "_id": "628fa8399242b27952cc8089",
+        "name": "Guitar Machine Heads",
+        "img": "https://elcoda.com/images/big/guiter-head-machine-premium-grandtune-classic-hauser-1932.jpg",
+        "description": "With its cutting edge Velvet-Tec technology it is the ultimate combination of tasteful design and velvet-smooth feel and touch.",
+        "price": 115,
+        "minQuantity": 5,
+        "availableQuantity": 12
+    },
+    {
+        "_id": "628fa8399242b27952cc8089",
+        "name": "Guitar Capo",
+        "img": "https://elcoda.com/images/big/guitar-capo-koenig-meyer-14530.jpg",
+        "description": "Professional capo for nearly all six and twelve string guitars with flat or slightly curved fingerboards.",
+        "price": 25,
+        "minQuantity": 5,
+        "availableQuantity": 18
+    }
+]
