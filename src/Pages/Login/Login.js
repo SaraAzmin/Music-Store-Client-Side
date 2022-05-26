@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from '../../Assets/Images/logo.png';
@@ -6,6 +6,8 @@ import Google from '../../Assets/Images/google.png';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading';
+import { toast } from 'react-toastify';
+import { sendPasswordResetEmail } from 'firebase/auth';
 
 const Login = () => {
 
@@ -16,6 +18,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
+    const emailRef = useRef('');
 
     let signinError;
 
@@ -32,8 +35,22 @@ const Login = () => {
     }
 
     const onSubmit = data => {
-        console.log(data);
+        //console.log(data);
         signInWithEmailAndPassword(data.email, data.password);
+    }
+
+    const resetPassword = async (event) => {
+
+        const email = emailRef.current.value;
+
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Password reset email sent');
+        }
+        else {
+            toast('Enter valid email address');
+        }
+
     }
 
     return (
@@ -57,7 +74,7 @@ const Login = () => {
                                         <label className="label">
                                             <span className="label-text">Email</span>
                                         </label>
-                                        <input type="email" placeholder="Your email"
+                                        <input type="email" placeholder="Your email" ref={emailRef}
                                             className="input input-bordered w-full max-w-xs"
                                             {...register("email", {
                                                 required: {
@@ -98,7 +115,7 @@ const Login = () => {
                                     <input className='btn w-full max-w-xs text-white bg-rose-700' type="submit" value="Login" />
                                     {signinError}
                                 </form>
-                                <p className='text-center pt-2'>or <Link className="text-red-600" to="/login">Forgot password?</Link></p>
+                                <p className='text-center pt-2'>or <Link className="text-red-600" to="/login" onClick={resetPassword}>Forgot password?</Link></p>
                                 <p className='py-2'>Don't have an account? <Link className='text-green-600 font-semibold' to="/register">Register here</Link></p>
                                 <div className="divider">OR</div>
                                 <button onClick={() => signInWithGoogle()}
