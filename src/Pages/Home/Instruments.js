@@ -16,7 +16,7 @@ const Instruments = () => {
     }, []);
 
     return (
-        <div className=' px-10 lg:px-20 bg-gray-200 py-8 lg:py-14 flex flex-col'>
+        <div className='px-10 lg:px-20 bg-gray-200 py-8 lg:py-14 flex flex-col'>
             <h3 className='text-2xl lg:text-4xl pb-5 lg:pb-10 text-center font-semibold text-rose-700 uppercase'>Our Instruments</h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10'>
                 {

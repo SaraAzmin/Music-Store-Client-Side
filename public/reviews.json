@@ -1,0 +1,20 @@
+[
+    {
+        "_id": "628fa83f60cwaaa1b0e80055",
+        "name": "Maria Smantha",
+        "img": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
+        "description": "Music Store is the best online webstore. Amazing choice, fast shipping and good rates! What else? To the next order!"
+    },
+    {
+        "_id": "628da83f20cwaaa1b0e80055",
+        "name": "Lisa Cudrow",
+        "img": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp",
+        "description": "eliable and tustworthy. have purchased several items and do recommend their services. Very good at handling customer expectations."
+    },
+    {
+        "_id": "628fa83f60cwaaa1b0g80025",
+        "name": "John Smith",
+        "img": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp",
+        "description": "Not much more to say, other than I will keep using Music Store to order more things, since the service was reliable."
+    }
+]
