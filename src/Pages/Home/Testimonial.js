@@ -2,7 +2,7 @@ import React from 'react';
 
 const Testimonial = ({ review }) => {
 
-    const { name, img, description } = review
+    const { name, img, description } = review;
 
     return (
         <div>
