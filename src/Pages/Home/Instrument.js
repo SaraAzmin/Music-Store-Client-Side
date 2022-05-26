@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Instrument = ({ instrument }) => {
 
     const { _id, name, img, description, price, minQuantity, availableQuantity } = instrument;
+
+    const navigate = useNavigate();
+
+    const navigateToPurchase = (id) => {
+        navigate("/instruments/" + id);
+    }
 
     return (
         <div>
@@ -19,7 +26,7 @@ const Instrument = ({ instrument }) => {
                     </div>
                     <div className="flex justify-between items-center py-1">
                         <h5 className='text-gray-900 text-lg font-medium'>Price: <span className=' text-rose-700'>${price}</span></h5>
-                        <button className="btn bg-rose-700 hover:scale-110 transition duration-300 ease-in-out uppercase">Purchase</button>
+                        <button className="btn bg-rose-700 hover:scale-110 transition duration-300 ease-in-out uppercase" onClick={() => navigateToPurchase(_id)} >Purchase</button>
                     </div>
                 </div>
             </div>

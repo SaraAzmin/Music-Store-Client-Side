@@ -10,7 +10,7 @@ const Instruments = () => {
     const sixInstruments = instruments.slice(0, 6);
 
     useEffect(() => {
-        fetch('instruments.json')
+        fetch('http://localhost:5000/instruments')
             .then(res => res.json())
             .then(data => setInstruments(data));
     }, []);
