@@ -14,7 +14,7 @@ const Login = () => {
                 <div className="container px-10 my-5 h-full">
                     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                         <div className="block bg-white shadow-lg rounded-lg w-96">
-                            <div className="md:p-6 md:mx-6 flex flex-col justify-center">
+                            <div className="p-6 mx-6 flex flex-col justify-center">
                                 <div className="text-center">
                                     <img
                                         className="mx-auto w-40"
