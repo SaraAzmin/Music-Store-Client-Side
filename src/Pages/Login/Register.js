@@ -2,11 +2,42 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import Logo from '../../Assets/Images/logo.png';
 import Google from '../../Assets/Images/google.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import Loading from '../Shared/Loading';
+import { toast } from 'react-toastify';
 
 const Register = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] = useSignInWithGoogle(auth);
+    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const navigate = useNavigate();
+
+    let registerError;
+
+    if (user || userGoogle) {
+        navigate('/home');
+    }
+
+    if (loading || loadingGoogle || updating) {
+        return <Loading></Loading>;
+    }
+
+    if (error || errorGoogle || updateError) {
+        registerError = <p className='text-red-600'>{error?.message || errorGoogle.message} </p>
+    }
+
+
+    const onSubmit = async (data) => {
+        console.log(data);
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
+        toast('User Registered. Please verify your email.');
+    }
 
     return (
         <div>
@@ -24,7 +55,7 @@ const Register = () => {
                                     <h4 className="text-xl font-semibold mb-2 pb-3 border-b-2 uppercase text-red-700">Music Store</h4>
                                     <p className="mb-4">Please login to your account</p>
                                 </div>
-                                <form>
+                                <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="form-control w-full max-w-xs">
                                         <label className="label">
                                             <span className="label-text">Name</span>
@@ -86,10 +117,11 @@ const Register = () => {
                                         </label>
                                     </div>
                                     <input className='btn w-full max-w-xs text-white bg-rose-700' type="submit" value="Register" />
+                                    {registerError}
                                 </form>
                                 <p className='py-2'>Already have an account? <Link className='text-green-600 font-semibold' to="/login">Login here</Link></p>
                                 <div className="divider">OR</div>
-                                <button
+                                <button onClick={() => signInWithGoogle()}
                                     className="btn btn-outline hover:bg-black hover:text-white"
                                 ><img className="w-4 h-4 mr-2" src={Google} alt="" />Continue with Google</button>
                             </div>
