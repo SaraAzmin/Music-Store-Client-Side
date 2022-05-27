@@ -9,12 +9,25 @@ const Purchase = () => {
     const [instrument, setInstrument] = useState({});
     const [user] = useAuthState(auth);
 
+    let inputError;
+
     useEffect(() => {
         const url = `http://localhost:5000/instruments/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInstrument(data))
     }, []);
+
+    const checkInput = e => {
+        const min = instrument.minQuantity;
+        const max = instrument.availableQuantity;
+        let inputValue = e.target.value;
+
+        if (!inputValue > min && !inputValue <= max) {
+            inputError = <p className='text-red-600'>'Input cannot be this' </p>
+
+        }
+    }
 
     return (
         <div className='px-10 lg:px-20 py-8 lg:py-14 flex flex-col bg-gray-100'>
@@ -38,9 +51,12 @@ const Purchase = () => {
                     </div>
                     <div className="md:flex items-center mb-5">
                         <h5 className='text-gray-900 text-lg font-medium pr-3'>Order Quantity: </h5>
-                        <input
-                            type="number"
-                            className="input input-bordered w-full max-w-xs" name='orderInput' value={instrument.minQuantity} />
+                        <div>
+                            <input
+                                type="number"
+                                className="input input-bordered w-full max-w-xs" name='orderInput' onChange={(e) => checkInput(e)} defaultValue={instrument.minQuantity} />
+                            <span>{inputError}</span>
+                        </div>
                     </div>
                     <div className="flex mb-5 items-center">
                         <h5 className='text-gray-900 text-lg font-medium pr-3'>Customer Name: </h5>
