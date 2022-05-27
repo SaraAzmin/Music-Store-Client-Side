@@ -10,7 +10,7 @@ const Instruments = () => {
     const sixInstruments = instruments.slice(0, 6);
 
     useEffect(() => {
-        fetch('http://localhost:5000/instruments')
+        fetch('https://shielded-dusk-24509.herokuapp.com/instruments')
             .then(res => res.json())
             .then(data => setInstruments(data));
     }, []);

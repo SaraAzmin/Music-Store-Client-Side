@@ -11,7 +11,7 @@ const MyOrders = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order?customerEmail=${user.email}`, {
+        fetch(`https://shielded-dusk-24509.herokuapp.com/order?customerEmail=${user.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

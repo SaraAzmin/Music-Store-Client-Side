@@ -17,7 +17,7 @@ const Purchase = () => {
     let maxValue = instrument.availableQuantity;
 
     useEffect(() => {
-        const url = `http://localhost:5000/instruments/${id}`;
+        const url = `https://shielded-dusk-24509.herokuapp.com/instruments/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setInstrument(data))
@@ -38,7 +38,7 @@ const Purchase = () => {
             orderQuantity: orderValue
         }
         //console.log(data, e);
-        fetch('http://localhost:5000/order', {
+        fetch('https://shielded-dusk-24509.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': "application/json"
