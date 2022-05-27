@@ -3,12 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import CancelModal from './CancelModal';
 
 const MyOrders = () => {
 
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
+
+    const [cancelOrder, setCancelOrder] = useState(null);
 
     useEffect(() => {
         fetch(`https://shielded-dusk-24509.herokuapp.com/order?customerEmail=${user.email}`, {
@@ -27,7 +30,7 @@ const MyOrders = () => {
             })
             .then(data => setOrders(data))
 
-    }, []);
+    }, [orders]);
 
     return (
         <div>
@@ -41,6 +44,7 @@ const MyOrders = () => {
                             <th>Instrument Name</th>
                             <th>Price</th>
                             <th>Order Quantity</th>
+                            <th>Payment</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -51,13 +55,17 @@ const MyOrders = () => {
                                 <td>{order.productName}</td>
                                 <td>$ {order.orderPrice}</td>
                                 <td>{order.orderQuantity}</td>
+                                <td><button className='btn btn-xs bg-black'>Pay Now</button></td>
                                 <td>
-                                    <Link to='/'><button className='btn btn-xs bg-rose-700'>Cancel Order</button></Link></td>
+                                    <label htmlFor="cancel-confirm-modal" onClick={() => setCancelOrder(order)} className='btn btn-xs bg-rose-700'>Cancel Order</label></td>
                             </tr>)
                         }
                     </tbody>
                 </table>
-            </div >
+            </div>
+            {cancelOrder && <CancelModal
+                cancelOrder={cancelOrder}
+                setCancelOrder={setCancelOrder}></CancelModal>}
         </div>
     );
 };
