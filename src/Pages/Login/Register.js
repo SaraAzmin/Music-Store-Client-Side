@@ -21,8 +21,8 @@ const Register = () => {
 
     let registerError;
 
-    if (user || userGoogle) {
-        //navigate('/home');
+    if (token) {
+        navigate('/dashboard');
     }
 
     if (loading || loadingGoogle || updating) {
