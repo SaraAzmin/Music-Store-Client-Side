@@ -1,7 +1,9 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading';
+import UsersRow from './UsersRow';
 
 const AllUsers = () => {
 
@@ -15,6 +17,8 @@ const AllUsers = () => {
     if (isLoading) {
         return <Loading></Loading>;
     }
+
+
 
     return (
         <div>
@@ -31,12 +35,7 @@ const AllUsers = () => {
                     </thead>
                     <tbody className='text-center'>
                         {
-                            users.map((user, index) => <tr>
-                                <th>{index + 1}</th>
-                                <td>{user.email}</td>
-                                <td><Link to='/'><button className='btn btn-xs bg-black'>Make Admin</button></Link></td>
-                                <td><Link to='/'><button className='btn btn-xs bg-rose-700'>Remove User</button></Link></td>
-                            </tr>)
+                            users.map((user, index) => <UsersRow key={user._id} user={user} refetch={refetch} index={index}></UsersRow>)
                         }
                     </tbody>
                 </table>
