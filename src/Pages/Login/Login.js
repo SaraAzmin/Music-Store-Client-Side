@@ -8,6 +8,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import Loading from '../Shared/Loading';
 import { toast } from 'react-toastify';
 import { sendPasswordResetEmail } from 'firebase/auth';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
 
@@ -19,10 +20,12 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
     const emailRef = useRef('');
+    const [token] = useToken(user || userGoogle);
+
 
     let signinError;
 
-    if (user || userGoogle) {
+    if (token) {
         navigate(from, { replace: true });
     }
 
