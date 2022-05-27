@@ -7,6 +7,7 @@ import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import Loading from '../Shared/Loading';
 import { toast } from 'react-toastify';
+import useToken from '../../Hooks/useToken';
 
 const Register = () => {
 
@@ -16,11 +17,12 @@ const Register = () => {
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navigate = useNavigate();
+    const [token] = useToken(user || userGoogle);
 
     let registerError;
 
     if (user || userGoogle) {
-        navigate('/home');
+        //navigate('/home');
     }
 
     if (loading || loadingGoogle || updating) {
