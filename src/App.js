@@ -15,6 +15,7 @@ import MyOrders from "./Pages/DashBoard/MyOrders";
 import AllUsers from "./Pages/DashBoard/AllUsers";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
 import AddReview from "./Pages/DashBoard/AddReview";
+import NotFound from "./Pages/NotFound/NotFound";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/dashboard/makeAdmin" element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
 
         </Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />
     </div>
