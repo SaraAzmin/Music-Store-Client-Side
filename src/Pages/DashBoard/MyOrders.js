@@ -55,7 +55,10 @@ const MyOrders = () => {
                                 <td>{order.productName}</td>
                                 <td>$ {order.orderPrice}</td>
                                 <td>{order.orderQuantity}</td>
-                                <td><button className='btn btn-xs bg-black'>Pay Now</button></td>
+                                <td>{
+                                    !order.paid ? <Link to={`payment/${order._id}`}><button className='btn btn-xs bg-black'>Pay Now</button></Link> :
+                                        <span>Paid</span>
+                                }</td>
                                 <td>
                                     <label htmlFor="cancel-confirm-modal" onClick={() => setCancelOrder(order)} className='btn btn-xs bg-rose-700'>Cancel Order</label></td>
                             </tr>)
