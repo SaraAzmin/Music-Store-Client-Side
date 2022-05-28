@@ -26,7 +26,7 @@ const Login = () => {
     let signinError;
 
     if (token) {
-        navigate(from, { replace: true });
+        navigate('/dashboard');
     }
 
     if (loading || loadingGoogle) {

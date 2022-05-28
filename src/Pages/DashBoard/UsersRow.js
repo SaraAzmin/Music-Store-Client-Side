@@ -27,12 +27,16 @@ const UsersRow = ({ user, refetch, index }) => {
             })
     }
 
+    const removeUser = () => {
+        toast('Not implemented yet!');
+    }
+
     return (
         <tr>
             <th>{index + 1}</th>
             <td>{user.email}</td>
             <td>{userType == 'admin' ? <span className='font-bold'>ADMIN</span> : <button className='btn btn-xs bg-black' onClick={makeAdmin}>Make Admin</button>}</td>
-            <td><Link to='/'><button className='btn btn-xs bg-rose-700'>Remove User</button></Link></td>
+            <td><button onClick={removeUser} className='btn btn-xs bg-rose-700'>Remove User</button></td>
         </tr>
     );
 };
