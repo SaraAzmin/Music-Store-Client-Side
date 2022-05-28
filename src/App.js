@@ -21,6 +21,7 @@ import StartPage from "./Pages/DashBoard/StartPage";
 import AddProduct from "./Pages/DashBoard/AddProduct";
 import ManageAllOrders from "./Pages/DashBoard/ManageAllOrders";
 import ManageProduct from "./Pages/DashBoard/ManageProduct";
+import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<Home></Home>} />
         <Route path="/home" element={<Home></Home>} />
         <Route path="blogs" element={<Blogs></Blogs>} />
+        <Route path="myPortfolio" element={<MyPortfolio></MyPortfolio>} />
         <Route path="login" element={<Login></Login>} />
         <Route path="register" element={<Register></Register>} />
         <Route path="/instruments/:id" element={<RequireAuth><Purchase></Purchase></RequireAuth>} />
