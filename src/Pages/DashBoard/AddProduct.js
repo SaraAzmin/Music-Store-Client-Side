@@ -9,7 +9,7 @@ const AddProduct = () => {
     const [user] = useAuthState(auth);
     const { register, handleSubmit, reset } = useForm();
 
-    const onSubmit = (data) => {
+    const onSubmit = (data, e) => {
         const url = "https://shielded-dusk-24509.herokuapp.com/instruments";
         fetch(url, {
             method: 'POST',
