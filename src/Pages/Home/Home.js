@@ -4,11 +4,13 @@ import Footer from '../Shared/Footer';
 import Instruments from './Instruments';
 import BusinessSummery from './BusinessSummery';
 import Testimonials from './Testimonials';
+import AboutUs from './AboutUs';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <AboutUs></AboutUs>
             <Instruments></Instruments>
             <BusinessSummery></BusinessSummery>
             <Testimonials></Testimonials>
