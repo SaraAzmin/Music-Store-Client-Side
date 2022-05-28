@@ -5,6 +5,7 @@ import Instruments from './Instruments';
 import BusinessSummery from './BusinessSummery';
 import Testimonials from './Testimonials';
 import AboutUs from './AboutUs';
+import ContactUs from './ContactUs';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <Instruments></Instruments>
             <BusinessSummery></BusinessSummery>
             <Testimonials></Testimonials>
+            <ContactUs></ContactUs>
             <Footer></Footer>
         </div>
     );
