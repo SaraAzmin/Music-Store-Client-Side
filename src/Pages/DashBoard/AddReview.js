@@ -21,7 +21,7 @@ const AddReview = () => {
             description: reviewInput
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://shielded-dusk-24509.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': "application/json",

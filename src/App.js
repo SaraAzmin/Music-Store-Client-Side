@@ -20,6 +20,7 @@ import Payment from "./Pages/DashBoard/Payment";
 import StartPage from "./Pages/DashBoard/StartPage";
 import AddProduct from "./Pages/DashBoard/AddProduct";
 import ManageAllOrders from "./Pages/DashBoard/ManageAllOrders";
+import ManageProduct from "./Pages/DashBoard/ManageProduct";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path="/dashboard/makeAdmin" element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
           <Route path="/dashboard/addProduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
           <Route path="/dashboard/manageOrders" element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>}></Route>
+          <Route path="/dashboard/manageProduct" element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>}></Route>
         </Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

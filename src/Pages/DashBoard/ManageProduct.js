@@ -2,14 +2,15 @@ import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import DeleteModal from './DeleteModal';
 
-const ManageAllOrders = () => {
-
-    const [orders, setOrders] = useState([]);
+const ManageProduct = () => {
+    const [instruments, setInstruments] = useState([]);
+    const [deleteProduct, setDeleteProduct] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://shielded-dusk-24509.herokuapp.com/order', {
+        fetch('https://shielded-dusk-24509.herokuapp.com/instruments', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -23,50 +24,44 @@ const ManageAllOrders = () => {
                 }
                 return res.json()
             })
-            .then(data => setOrders(data))
-
-    }, []);
+            .then(data => setInstruments(data))
+    }, [instruments]);
 
     return (
         <div>
-            <h2 className='text-xl font-semibold text-center py-5 uppercase border-b-2 border-red-100'>Manage All Orders</h2>
+            <h2 className='text-xl font-semibold text-center py-5 uppercase border-b-2 border-red-100'>Manage All Products</h2>
             <div className="overflow-x-auto p-10">
                 <table className="table table-zebra w-full">
                     <thead>
                         <tr className='text-center'>
                             <th>SL. No</th>
-                            <th>Customer Email</th>
-                            <th>Instrument Name</th>
+                            <th>Name</th>
                             <th>Price</th>
-                            <th>Payment</th>
-                            <th>Status</th>
+                            <th>Available Quantity</th>
+                            <th>Minimum Order</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody className='text-center'>
                         {
-                            orders.map((order, index) => <tr>
+                            instruments.map((instrument, index) => <tr>
                                 <th>{index + 1}</th>
-                                <td>{order.customerEmail}</td>
-                                <td>{order.productName}</td>
-                                <td>$ {order.orderPrice}</td>
-                                <td>{
-                                    !order.paid ? <span className='font-bold'>Not Paid</span> :
-                                        <span className='font-bold'>Paid</span>
-                                }</td>
-                                <td>Pending</td>
+                                <td>{instrument.name}</td>
+                                <td>$ {instrument.price}</td>
+                                <td>{instrument.availableQuantity}</td>
+                                <td>{instrument.minQuantity}</td>
                                 <td>
-                                    {order.paid &&
-                                        <label htmlFor="cancel-confirm-modal" className='btn btn-xs bg-rose-700'>Ship Now</label>
-                                    }
-                                </td>
+                                    <label htmlFor="delete-confirm-modal" onClick={() => setDeleteProduct(instrument)} className='btn btn-xs bg-rose-700'>Delete Product</label></td>
                             </tr>)
                         }
                     </tbody>
                 </table>
-            </div>
+            </div >
+            {deleteProduct && <DeleteModal
+                deleteProduct={deleteProduct}
+                setDeleteProduct={setDeleteProduct}></DeleteModal>}
         </div>
     );
 };
 
-export default ManageAllOrders;
+export default ManageProduct;

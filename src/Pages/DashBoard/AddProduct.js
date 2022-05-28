@@ -10,7 +10,7 @@ const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data) => {
-        const url = "http://localhost:5000/instruments";
+        const url = "https://shielded-dusk-24509.herokuapp.com/instruments";
         fetch(url, {
             method: 'POST',
             headers: {
