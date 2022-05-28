@@ -4,7 +4,7 @@ import sideImg from '../../Assets/Images/image.jpg'
 const AboutUs = () => {
     return (
         <div>
-            <div className="hero bg-rose-700 py-10">
+            <div className="hero bg-rose-700 py-10 px-10 lg:px-20">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <img src={sideImg} className="max-w-xs px-5 md:px-0 rounded-lg shadow-2xl hover:scale-110 transition duration-400 ease-in-out" />
                     <div className=''>

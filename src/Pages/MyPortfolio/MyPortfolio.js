@@ -27,7 +27,7 @@ const MyPortfolio = () => {
             <div className="flex mb-5">
                 <h5 className='text-gray-900 text-lg font-medium pr-5'>Projects: </h5>
                 <ul className='list-disc pl-5'>
-                    <li><ExternalLink className="text-rose-700 font-semibold" href="https://www.linkedin.com/in/azminsara17/" target="_blank" >Music Store</ExternalLink></li>
+                    <li><ExternalLink className="text-rose-700 font-semibold" href="https://music-store-3bd02.web.app/" target="_blank" >Music Store</ExternalLink></li>
                     <li><ExternalLink className="text-rose-700 font-semibold" href="https://grocery-inventory-client-side.web.app/" target="_blank" >Go Green Groceries</ExternalLink></li>
                     <li><ExternalLink className="text-rose-700 font-semibold" href="https://purpose-coach-website.web.app/" target="_blank" >Purpose Coach</ExternalLink></li>
                 </ul>
