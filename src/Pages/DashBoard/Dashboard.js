@@ -22,7 +22,7 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     {
                         !admin && <>
-                            <li className='border-b-2'><Link to="/dashboard">My Orders</Link></li>
+                            <li className='border-b-2'><Link to="/dashboard/myOrders">My Orders</Link></li>
                             <li className='border-b-2'><Link to="/dashboard/addReview">Add a Review</Link></li></>
                     }
                     <li className='border-b-2'><Link to="/dashboard/myProfile">My Profile</Link></li>

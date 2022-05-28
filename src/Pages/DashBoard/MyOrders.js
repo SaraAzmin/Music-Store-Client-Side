@@ -34,8 +34,6 @@ const MyOrders = () => {
 
     return (
         <div>
-            <h2 className='text-2xl font-semibold  text-center pt-5 uppercase'>Hello <span className='text-rose-700'>{user.displayName}</span></h2>
-            <h2 className='text-xl font-semibold text-center pt-2 pb-5 uppercase border-b-2 border-red-100'>Welcome to your Dashboard</h2>
             <div className="overflow-x-auto p-10">
                 <table className="table table-zebra w-full">
                     <thead>
@@ -56,11 +54,17 @@ const MyOrders = () => {
                                 <td>$ {order.orderPrice}</td>
                                 <td>{order.orderQuantity}</td>
                                 <td>{
-                                    !order.paid ? <Link to={`payment/${order._id}`}><button className='btn btn-xs bg-black'>Pay Now</button></Link> :
-                                        <span>Paid</span>
+                                    !order.paid ? <Link to={`/dashboard/myOrders/payment/${order._id}`}><button className='btn btn-xs bg-black'>Pay Now</button></Link> :
+                                        <div className='flex flex-col'>
+                                            <span className='font-bold'>Paid</span>
+                                            <span>Trans id: <span className='text-green-500'>{order.transactionId}</span></span>
+                                        </div>
                                 }</td>
                                 <td>
-                                    <label htmlFor="cancel-confirm-modal" onClick={() => setCancelOrder(order)} className='btn btn-xs bg-rose-700'>Cancel Order</label></td>
+                                    {
+                                        !order.paid && <label htmlFor="cancel-confirm-modal" onClick={() => setCancelOrder(order)} className='btn btn-xs bg-rose-700'>Cancel Order</label>
+                                    }
+                                </td>
                             </tr>)
                         }
                     </tbody>

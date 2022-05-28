@@ -1,7 +1,12 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading';
+import CheckoutForm from './CheckoutForm';
+
+const stripePromise = loadStripe('pk_test_51L3Q5MChR64wzhkKSbLssex9K6cpixSCzi3xlduqQpyWAYPDHOQoYCm0xjIHnnv5oqlRF7BqPAUCLQ3ls4M2iZzJ00scpTTpVz');
 
 const Payment = () => {
 
@@ -32,9 +37,11 @@ const Payment = () => {
                         <p>Please pay: <span className='font-bold'>${order.orderPrice}</span></p>
                     </div>
                 </div>
-                <div className="card shadow-2xl w-50 max-w-md bg-base-100">
+                <div className="card shadow-2xl w-full max-w-md border-2 border-red-700">
                     <div className="card-body">
-
+                        <Elements stripe={stripePromise}>
+                            <CheckoutForm order={order} />
+                        </Elements>
                     </div>
                 </div>
             </div>

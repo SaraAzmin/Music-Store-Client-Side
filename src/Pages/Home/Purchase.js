@@ -49,7 +49,7 @@ const Purchase = () => {
             .then(result => {
                 toast("New order added. Please complete payment!")
             })
-        navigate('/dashboard');
+        navigate('/dashboard/myOrders');
 
     }
 
