@@ -36,3 +36,9 @@ This is a website for a Musical Instrument Manufacturer named Music Store. The w
 - React Hook Forms
 - Firebase Authentication and Hosting
 - Json web token
+
+
+To check the admin functionalities, use this credentials: 
+
+email- ssazmin28@gmail.com 
+password - 11112222
