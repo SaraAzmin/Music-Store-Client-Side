@@ -6,7 +6,7 @@ const AllInstruments = () => {
     const [instruments, setInstruments] = useState([]);
 
     useEffect(() => {
-        fetch('https://shielded-dusk-24509.herokuapp.com/instruments')
+        fetch('https://music-store-server-side.vercel.app/instruments')
             .then(res => res.json())
             .then(data => setInstruments(data));
     }, []);

@@ -14,7 +14,7 @@ const CheckoutForm = ({ order }) => {
     const { _id, customerName, customerEmail, productName, orderPrice, orderQuantity } = order;
 
     useEffect(() => {
-        fetch(`https://shielded-dusk-24509.herokuapp.com/create-payment-intent`, {
+        fetch(`https://music-store-server-side.vercel.app/create-payment-intent`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -81,7 +81,7 @@ const CheckoutForm = ({ order }) => {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://shielded-dusk-24509.herokuapp.com/order/${_id}`, {
+            fetch(`https://music-store-server-side.vercel.app/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

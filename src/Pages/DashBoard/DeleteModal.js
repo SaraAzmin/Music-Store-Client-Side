@@ -6,7 +6,7 @@ const CancelModal = ({ deleteProduct, setDeleteProduct }) => {
     const { _id } = deleteProduct;
 
     const handleDelete = (id) => {
-        fetch(`https://shielded-dusk-24509.herokuapp.com/instruments/${id}`, {
+        fetch(`https://music-store-server-side.vercel.app/instruments/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

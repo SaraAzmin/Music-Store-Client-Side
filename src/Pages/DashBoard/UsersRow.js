@@ -7,7 +7,7 @@ const UsersRow = ({ user, refetch, index }) => {
     const { email, userType } = user;
 
     const makeAdmin = () => {
-        fetch(`https://shielded-dusk-24509.herokuapp.com/user/admin/${user.email}`, {
+        fetch(`https://music-store-server-side.vercel.app/user/admin/${user.email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

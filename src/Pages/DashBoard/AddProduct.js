@@ -10,7 +10,7 @@ const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data, e) => {
-        const url = "https://shielded-dusk-24509.herokuapp.com/instruments";
+        const url = "https://music-store-server-side.vercel.app/instruments";
         fetch(url, {
             method: 'POST',
             headers: {

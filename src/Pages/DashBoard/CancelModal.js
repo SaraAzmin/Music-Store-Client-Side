@@ -6,7 +6,7 @@ const CancelModal = ({ cancelOrder, setCancelOrder }) => {
     const { customerEmail } = cancelOrder;
 
     const handleDelete = () => {
-        fetch(`https://shielded-dusk-24509.herokuapp.com/order/${customerEmail}`, {
+        fetch(`https://music-store-server-side.vercel.app/order/${customerEmail}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

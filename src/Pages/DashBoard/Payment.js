@@ -12,7 +12,7 @@ const Payment = () => {
 
     const { id } = useParams();
 
-    const url = `https://shielded-dusk-24509.herokuapp.com/order/${id}`;
+    const url = `https://music-store-server-side.vercel.app/order/${id}`;
 
     const { data: order, isLoading } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',

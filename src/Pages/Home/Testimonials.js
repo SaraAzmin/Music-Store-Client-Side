@@ -7,7 +7,7 @@ const Testimonials = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('https://shielded-dusk-24509.herokuapp.com/reviews')
+        fetch('https://music-store-server-side.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data));
     }, []);

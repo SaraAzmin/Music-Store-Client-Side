@@ -20,7 +20,7 @@ const MyProfile = () => {
         }
         //console.log(user)
 
-        fetch(`https://shielded-dusk-24509.herokuapp.com//update/${user.email}`, {
+        fetch(`https://music-store-server-side.vercel.app//update/${user.email}`, {
             method: 'PUT',
             headers: {
                 'content-type': "application/json"

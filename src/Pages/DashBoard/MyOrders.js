@@ -14,7 +14,7 @@ const MyOrders = () => {
     const [cancelOrder, setCancelOrder] = useState(null);
 
     useEffect(() => {
-        fetch(`https://shielded-dusk-24509.herokuapp.com/order?customerEmail=${user.email}`, {
+        fetch(`https://music-store-server-side.vercel.app/order?customerEmail=${user.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

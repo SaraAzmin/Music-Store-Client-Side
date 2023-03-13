@@ -9,7 +9,7 @@ const ManageAllOrders = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://shielded-dusk-24509.herokuapp.com/order', {
+        fetch('https://music-store-server-side.vercel.app/order', {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

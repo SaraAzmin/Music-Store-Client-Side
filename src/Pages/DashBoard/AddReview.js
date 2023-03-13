@@ -21,7 +21,7 @@ const AddReview = () => {
             description: reviewInput
         }
 
-        fetch('https://shielded-dusk-24509.herokuapp.com/reviews', {
+        fetch('https://music-store-server-side.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': "application/json",

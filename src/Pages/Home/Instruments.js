@@ -10,7 +10,7 @@ const Instruments = () => {
     const sixInstruments = instruments.slice(0, 6);
 
     useEffect(() => {
-        fetch('https://shielded-dusk-24509.herokuapp.com/instruments')
+        fetch('https://music-store-server-side.vercel.app/instruments')
             .then(res => res.json())
             .then(data => setInstruments(data));
     }, []);
