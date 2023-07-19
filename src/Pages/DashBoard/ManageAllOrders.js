@@ -2,6 +2,7 @@ import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 const ManageAllOrders = () => {
 
@@ -26,6 +27,10 @@ const ManageAllOrders = () => {
             .then(data => setOrders(data))
 
     }, []);
+
+    const shipOrder = () => {
+        toast('Not implemented yet!');
+    }
 
     return (
         <div>
@@ -57,7 +62,7 @@ const ManageAllOrders = () => {
                                 <td>Pending</td>
                                 <td>
                                     {order.paid &&
-                                        <label htmlFor="cancel-confirm-modal" className='btn btn-xs bg-rose-700'>Ship Now</label>
+                                        <label htmlFor="cancel-confirm-modal" className='btn btn-xs bg-rose-700' onClick={shipOrder}>Ship Now</label>
                                     }
                                 </td>
                             </tr>)
