@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import './App.css';
-import Home from './Pages/Home/Home';
+import "./App.css";
+import Home from "./Pages/Home/Home";
 import Navbar from "./Pages/Shared/Navbar";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Login/Register";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import Purchase from "./Pages/Home/Purchase";
 import AllInstruments from "./Pages/Home/AllInstruments";
@@ -22,7 +22,6 @@ import ManageAllOrders from "./Pages/DashBoard/ManageAllOrders";
 import ManageProduct from "./Pages/DashBoard/ManageProduct";
 import MyProfile from "./Pages/DashBoard/MyProfile";
 
-
 function App() {
   return (
     <div>
@@ -32,18 +31,75 @@ function App() {
         <Route path="/home" element={<Home></Home>} />
         <Route path="login" element={<Login></Login>} />
         <Route path="register" element={<Register></Register>} />
-        <Route path="/instruments/:id" element={<RequireAuth><Purchase></Purchase></RequireAuth>} />
-        <Route path="/allInstruments" element={<AllInstruments></AllInstruments>} />
-        <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
+        <Route
+          path="/instruments/:id"
+          element={
+            <RequireAuth>
+              <Purchase></Purchase>
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/allInstruments"
+          element={<AllInstruments></AllInstruments>}
+        />
+        <Route
+          path="dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
           <Route index element={<StartPage></StartPage>}></Route>
-          <Route path="/dashboard/myOrders" element={<MyOrders></MyOrders>}></Route>
-          <Route path="/dashboard/addReview" element={<AddReview></AddReview>}></Route>
-          <Route path="/dashboard/myProfile" element={<MyProfile></MyProfile>}></Route>
-          <Route path="/dashboard/myOrders/payment/:id" element={<Payment></Payment>}></Route>
-          <Route path="/dashboard/makeAdmin" element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
-          <Route path="/dashboard/addProduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
-          <Route path="/dashboard/manageOrders" element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>}></Route>
-          <Route path="/dashboard/manageProduct" element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>}></Route>
+          <Route
+            path="/dashboard/myOrders"
+            element={<MyOrders></MyOrders>}
+          ></Route>
+          <Route
+            path="/dashboard/addReview"
+            element={<AddReview></AddReview>}
+          ></Route>
+          <Route
+            path="/dashboard/myProfile"
+            element={<MyProfile></MyProfile>}
+          ></Route>
+          <Route
+            path="/dashboard/myOrders/payment/:id"
+            element={<Payment></Payment>}
+          ></Route>
+          <Route
+            path="/dashboard/makeAdmin"
+            element={
+              <RequireAdmin>
+                <AllUsers></AllUsers>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/addProduct"
+            element={
+              <RequireAdmin>
+                <AddProduct></AddProduct>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/manageOrders"
+            element={
+              <RequireAdmin>
+                <ManageAllOrders></ManageAllOrders>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/manageProduct"
+            element={
+              <RequireAdmin>
+                <ManageProduct></ManageProduct>
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
